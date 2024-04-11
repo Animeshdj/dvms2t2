@@ -1,6 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import barging from "../assets/Cargo-Barging-Business.webp";
+import plane from "../assets/Cargo-Plane-Business.webp";
+import rail from "../assets/Cargo-Rail-Business.webp";
+import ship from "../assets/Cargo-Ship-Business.webp";
+import truck from "../assets/Cargo-Truck-Business.webp";
 
 const SectionD = () => {
+  const [vidIndex, setVidIndex] = useState(0);
+  const [translateX, setTranslateX] = useState(0);
+  const [opacity, setOpacity] = useState(1);
+  const images = [ship, rail, plane, barging, truck];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTranslateX(0);
+      setOpacity(0);
+      setTimeout(() => {
+        setVidIndex((vidIndex + 1) % images.length);
+        setTranslateX(-10);
+      }, 300);
+      setTimeout(() => {
+        setOpacity(1);
+      }, 450);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  });
+
   return (
     <div className="section-4">
       <div className="section-4-container">
@@ -40,7 +66,19 @@ const SectionD = () => {
           </div>
         </div>
         <div className="section-4-graphic">
-          <div className="section-4-vidwrapper"></div>
+          <div className="section-4-vidwrapper">
+            <div className="section-4-vid">
+              <img
+                loading="eager"
+                src={images[vidIndex]}
+                className="section-4-vid-item"
+                style={{
+                  transform: `translateX(${translateX}px)`,
+                  opacity: `${opacity}`,
+                }}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
