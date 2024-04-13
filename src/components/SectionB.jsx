@@ -60,6 +60,10 @@ const SectionB = () => {
                   ? "section-2-content-item"
                   : "section-2-content-item inactive-paragraph"
               }
+              onClick={() => {
+                setActiveParagraph(0);
+                setCurrentIndex(0);
+              }}
             >
               <h2>We Believe in People</h2>
               <div className="section-2-content-item-text">
@@ -83,6 +87,10 @@ const SectionB = () => {
                   ? "section-2-content-item"
                   : "section-2-content-item inactive-paragraph"
               }
+              onClick={() => {
+                setActiveParagraph(1);
+                setCurrentIndex(1);
+              }}
             >
               <h2>We Solve Each and Any Shipping Problem</h2>
               <div className="section-2-content-item-text">
@@ -105,6 +113,10 @@ const SectionB = () => {
                   ? "section-2-content-item"
                   : "section-2-content-item inactive-paragraph"
               }
+              onClick={() => {
+                setActiveParagraph(2);
+                setCurrentIndex(2);
+              }}
             >
               <h2>Single Point of Contact</h2>
               <div className="section-2-content-item-text">
@@ -126,6 +138,10 @@ const SectionB = () => {
                   ? "section-2-content-item"
                   : "section-2-content-item inactive-paragraph"
               }
+              onClick={() => {
+                setActiveParagraph(3);
+                setCurrentIndex(3);
+              }}
             >
               <h2>Flexible & Fast Decision-Making</h2>
               <div className="section-2-content-item-text">

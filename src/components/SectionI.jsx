@@ -17,7 +17,7 @@ const SectionI = () => {
   };
 
   useEffect(() => {
-    setTranslateX(carouselIndex * -1720);
+    setTranslateX(carouselIndex * -105);
     // console.log(translateX);
   }, [carouselIndex]);
 
@@ -59,7 +59,7 @@ const SectionI = () => {
               <div className="section-9-carousel">
                 <div
                   className="carousel-container"
-                  style={{ transform: `translateX(${translateX}px)` }}
+                  style={{ transform: `translateX(${translateX}rem)` }}
                 >
                   <div className="carousel-item">
                     <div className="carousel-blog">
