@@ -1,0 +1,126 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #00358d;
+  padding: 4rem 0 2.5rem;
+  position: relative;
+  gap: 6rem;
+}
+
+.footer-primary {
+  flex-direction: row;
+  gap: 6rem;
+  padding: 0 calc(22 * var(--space));
+  width: 100%;
+  max-width: 119.375rem;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+
+.footer-logowrapper {
+  width: fit-content;
+  align-self: flex-start;
+}
+
+.footer-logo {
+  height: 2.5rem;
+  width: 100%;
+}
+
+.footer-navwrapper {
+  flex-direction: row;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-nav-item {
+  font: 500 0.75rem/ 1.5rem "Schibsted Grotesk";
+  color: #99aed1;
+}
+.footer-nav-item:hover {
+  color: #ccd6e8;
+}
+
+.footer-secondary {
+  align-items: flex-end;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  display: flex;
+  padding-right: 9rem;
+  gap: 1.5rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+.footer-socials a {
+  height: 1.5rem;
+}
+
+.footer-socials i {
+  color: #6685ba;
+  display: inline-block;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+.footer-socials i:hover {
+  color: #99aed1;
+}
+
+.footer-privacy {
+  text-align: end;
+  color: #99aed1;
+  font: 500 0.75rem/1.5rem "Schibsted Grotesk";
+}
+
+.footer-privacy a {
+  text-decoration: underline;
+  color: #99aed1;
+}
+.footer-privacy a:hover {
+  color: #ccd6e8;
+}
+
+.footer-madeby {
+  left: calc(22 * var(--space));
+  margin-top: 0;
+  position: absolute;
+  bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  z-index: 3;
+  color: #99aed1;
+  transition: all 0.1s ease-in-out;
+}
+
+.footer-madeby span {
+  text-decoration: none;
+  line-height: 1;
+  font: 500 0.75rem / 1.5rem "Schibsted Grotesk";
+}
+
+.footer-madeby svg {
+  transition: all 0.1s ease-in-out;
+  height: 1.25rem;
+  color: #6685ba;
+  display: block;
+}
+
+.footer-madeby:hover {
+  color: #ccd6e8;
+}
+
+.footer-madeby:hover svg {
+  color: #ccd6e8;
+}

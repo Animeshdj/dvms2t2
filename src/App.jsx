@@ -1,5 +1,6 @@
 import "./App.css";
 import Body from "./components/Body";
+import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import Lenis from "@studio-freight/lenis";
 
@@ -20,6 +21,7 @@ function App() {
     <>
       <Nav />
       <Body />
+      <Footer />
     </>
   );
 }
