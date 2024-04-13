@@ -1205,6 +1205,7 @@
 .carousel-container {
   display: flex;
   width: 100%;
+  transition: all 0.3s ease;
 }
 
 .carousel-item {
@@ -1715,4 +1716,17 @@ button {
 .section-k-darkcontent .sec3-btn-btn:hover {
   background-color: #335da3;
   transform: translateX(0.5rem);
+}
+
+.inactive-paragraph p {
+  display: none;
+}
+
+.carousel-item:hover .carousel-blog-img-img {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.carousel-item:hover .carousel-blog-title {
+  text-decoration: underline;
 }

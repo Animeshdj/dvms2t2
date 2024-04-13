@@ -1,10 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 
 const SectionJ = () => {
+  const [x, setX] = useState(0);
+  const [y, setY] = useState(0);
+  const [x1, setX1] = useState(0);
+  const [y1, setY1] = useState(0);
+  const handleMouseMove = (e) => {
+    const rect = e.target.getBoundingClientRect();
+
+    const width = rect.width;
+    const height = rect.height;
+
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    const x = mouseX / width - 0.5;
+    const y = mouseY / height - 0.5;
+    setX(x);
+    setY(y);
+  };
+  const handleMouseMove1 = (e) => {
+    const rect = e.target.getBoundingClientRect();
+
+    const width = rect.width;
+    const height = rect.height;
+
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    const x = mouseX / width - 0.5;
+    const y = mouseY / height - 0.5;
+    setX1(x);
+    setY1(y);
+  };
+  const handleMouseOut = () => {
+    setX(0);
+    setY(0);
+    setX1(0);
+    setY1(0);
+  };
+
   return (
     <div className="section-j">
       <div className="section-j-container">
-        <div className="section-j-card">
+        <div
+          className="section-j-card"
+          onMouseMove={handleMouseMove}
+          onMouseOut={handleMouseOut}
+          style={{
+            transform: `translateY(${x * 12}px) rotateY(${
+              x * 14
+            }deg) translateX(${y * 12}px) rotateX(${y * -22}deg)`,
+          }}
+        >
           <p className="section-j-title">
             <i className="btn-icon">
               <svg
@@ -56,7 +104,16 @@ const SectionJ = () => {
           </a>
           <a href="/" className="section-j-link" />
         </div>
-        <div className="section-j-card">
+        <div
+          className="section-j-card"
+          onMouseMove={handleMouseMove1}
+          onMouseOut={handleMouseOut}
+          style={{
+            transform: `translateY(${x1 * 12}px) rotateY(${
+              x1 * 14
+            }deg) translateX(${y1 * 12}px) rotateX(${y1 * -22}deg)`,
+          }}
+        >
           <p className="section-j-title">
             <i className="btn-icon">
               <svg

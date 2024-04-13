@@ -1,6 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const SectionI = () => {
+  const [carouselIndex, setCarouselIndex] = useState(0);
+  const [translateX, setTranslateX] = useState(0);
+
+  const handleLeftBtn = () => {
+    setCarouselIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+    // console.log(carouselIndex);
+  };
+  const handleRightBtn = () => {
+    setCarouselIndex((prevIndex) => Math.min(prevIndex + 1, 2));
+    // console.log(carouselIndex);
+  };
+  const handleDot = (index) => {
+    setCarouselIndex(index);
+  };
+
+  useEffect(() => {
+    setTranslateX(carouselIndex * -1320);
+    // console.log(translateX);
+  }, [carouselIndex]);
+
   return (
     <div className="section-9">
       <div className="section-9-container">
@@ -37,7 +57,10 @@ const SectionI = () => {
           <div className="section-9-blog">
             <div className="section-9-carouselwrapper">
               <div className="section-9-carousel">
-                <div className="carousel-container">
+                <div
+                  className="carousel-container"
+                  style={{ transform: `translateX(${translateX}px)` }}
+                >
                   <div className="carousel-item">
                     <div className="carousel-blog">
                       <div className="carousel-blog-img">
@@ -745,7 +768,11 @@ const SectionI = () => {
                   </div>
                 </div>
                 <div className="carousel-btnwrapper">
-                  <button className="carousel-btn left-btn">
+                  <button
+                    className="carousel-btn left-btn"
+                    onClick={handleLeftBtn}
+                    disabled={carouselIndex === 0 ? "diabled" : ""}
+                  >
                     <i className="btn-icon">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -767,7 +794,11 @@ const SectionI = () => {
                       </svg>
                     </i>
                   </button>
-                  <button className="carousel-btn">
+                  <button
+                    className="carousel-btn right-btn"
+                    onClick={handleRightBtn}
+                    disabled={carouselIndex === 2 ? "diabled" : ""}
+                  >
                     <i className="btn-icon">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -792,9 +823,30 @@ const SectionI = () => {
                 </div>
               </div>
               <div className="section-9-dotwrapper">
-                <div className="carousel-blog-dot carousel-blog-dot-selected"></div>
-                <div className="carousel-blog-dot"></div>
-                <div className="carousel-blog-dot"></div>
+                <div
+                  className={
+                    carouselIndex === 0
+                      ? "carousel-blog-dot carousel-blog-dot-selected"
+                      : "carousel-blog-dot"
+                  }
+                  onClick={() => handleDot(0)}
+                ></div>
+                <div
+                  className={
+                    carouselIndex === 1
+                      ? "carousel-blog-dot carousel-blog-dot-selected"
+                      : "carousel-blog-dot"
+                  }
+                  onClick={() => handleDot(1)}
+                ></div>
+                <div
+                  className={
+                    carouselIndex === 2
+                      ? "carousel-blog-dot carousel-blog-dot-selected"
+                      : "carousel-blog-dot"
+                  }
+                  onClick={() => handleDot(2)}
+                ></div>
               </div>
             </div>
           </div>

@@ -1,6 +1,64 @@
-import React from "react";
+import React, { useState } from "react";
 
 const SectionH = () => {
+  const [x, setX] = useState(0);
+  const [y, setY] = useState(0);
+  const [x1, setX1] = useState(0);
+  const [y1, setY1] = useState(0);
+  const [x2, setX2] = useState(0);
+  const [y2, setY2] = useState(0);
+  const handleMouseMove = (e) => {
+    const rect = e.target.getBoundingClientRect();
+
+    const width = rect.width;
+    const height = rect.height;
+
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    const x = mouseX / width - 0.5;
+    const y = mouseY / height - 0.5;
+    setX(x);
+    setY(y);
+  };
+  const handleMouseMove1 = (e) => {
+    const rect = e.target.getBoundingClientRect();
+
+    const width = rect.width;
+    const height = rect.height;
+
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    const x = mouseX / width - 0.5;
+    const y = mouseY / height - 0.5;
+    setX1(x);
+    setY1(y);
+  };
+  const handleMouseMove2 = (e) => {
+    const rect = e.target.getBoundingClientRect();
+
+    const width = rect.width;
+    const height = rect.height;
+
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    const x = mouseX / width - 0.5;
+    const y = mouseY / height - 0.5;
+    setX2(x);
+    setY2(y);
+  };
+
+  const handleMouseOut = () => {
+    setX(0);
+    setY(0);
+    setX1(0);
+    setY1(0);
+    setX2(0);
+    setY2(0);
+  };
+
   return (
     <div className="section-8">
       <div className="section-8-container">
@@ -38,7 +96,16 @@ const SectionH = () => {
           </a>
         </div>
         <div className="section-8-cardwrapper">
-          <div className="section-8-card">
+          <div
+            className="section-8-card"
+            onMouseMove={handleMouseMove}
+            onMouseOut={handleMouseOut}
+            style={{
+              transform: `translateY(${x * 12}px) rotateY(${
+                x * 14
+              }deg) translateX(${y * 12}px) rotateX(${y * -22}deg)`,
+            }}
+          >
             <div className="section-8-card-imgwrapper">
               <img
                 width={200}
@@ -90,7 +157,16 @@ const SectionH = () => {
             </div>
             <a href="/" className="section-8-card-link"></a>
           </div>
-          <div className="section-8-card">
+          <div
+            className="section-8-card"
+            onMouseMove={handleMouseMove1}
+            onMouseOut={handleMouseOut}
+            style={{
+              transform: `translateY(${x1 * 12}px) rotateY(${
+                x1 * 14
+              }deg) translateX(${y1 * 12}px) rotateX(${y1 * -22}deg)`,
+            }}
+          >
             <div className="section-8-card-imgwrapper">
               <img
                 width={200}
@@ -143,7 +219,16 @@ const SectionH = () => {
             </div>
             <a href="/" className="section-8-card-link"></a>
           </div>
-          <div className="section-8-card">
+          <div
+            className="section-8-card"
+            onMouseMove={handleMouseMove2}
+            onMouseOut={handleMouseOut}
+            style={{
+              transform: `translateY(${x2 * 12}px) rotateY(${
+                x2 * 14
+              }deg) translateX(${y2 * 12}px) rotateX(${y2 * -22}deg)`,
+            }}
+          >
             <div className="section-8-card-imgwrapper">
               <img
                 width={200}
