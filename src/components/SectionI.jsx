@@ -17,7 +17,7 @@ const SectionI = () => {
   };
 
   useEffect(() => {
-    setTranslateX(carouselIndex * -1320);
+    setTranslateX(carouselIndex * -1720);
     // console.log(translateX);
   }, [carouselIndex]);
 
