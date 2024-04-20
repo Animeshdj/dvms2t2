@@ -1,12 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const SectionC = () => {
   const [prevScrollY, setPrevScrollY] = useState(0);
+  const sectionRef = useRef();
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setPrevScrollY(currentScrollY);
+      const sectionRect = sectionRef.current.getBoundingClientRect();
+      const isVisible =
+        sectionRect.top < window.innerHeight && sectionRect.bottom >= 0;
+      if (isVisible) {
+        const currentScrollY = window.scrollY;
+        setPrevScrollY(currentScrollY);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -18,7 +24,7 @@ const SectionC = () => {
   const translateValue = (window.scrollY - 1500) / 2;
 
   return (
-    <div className="section-3">
+    <div className="section-3" ref={sectionRef}>
       <div className="section-3-container">
         <div className="section-3-content">
           <p className="sec3-content-title">Our Locations</p>

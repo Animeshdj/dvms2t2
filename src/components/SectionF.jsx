@@ -1,8 +1,30 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const SectionF = () => {
+  const [parallaxY, setParallaxY] = useState(0);
+  const sectionRef = useRef();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sectionRect = sectionRef.current.getBoundingClientRect();
+      const isVisible =
+        sectionRect.top < window.innerHeight && sectionRect.bottom >= 0;
+      if (isVisible) {
+        const scrollPosition = window.scrollY;
+        const parallaxValue = 500 - scrollPosition * 0.1;
+        setParallaxY(window.innerWidth < 768 ? 0 : parallaxValue);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="section-6">
+    <div className="section-6" ref={sectionRef}>
       <div className="section-6-container">
         <div className="section-6-content">
           <h3>A Fully Transparent Logistics Flow at your Fingertips</h3>
@@ -37,7 +59,10 @@ const SectionF = () => {
             </div>
           </a>
         </div>
-        <div className="section-6-imgwrapper">
+        <div
+          className="section-6-imgwrapper"
+          style={{ transform: `translateY(${parallaxY}px)` }}
+        >
           <img
             srcSet="https://a.storyblok.com/f/240783/1080x622/44f5d62fa7/screen_business.png/m/96x112/filters:quality(95):focal() 96w, https://a.storyblok.com/f/240783/1080x622/44f5d62fa7/screen_business.png/m/128x149/filters:quality(95):focal() 128w, https://a.storyblok.com/f/240783/1080x622/44f5d62fa7/screen_business.png/m/256x298/filters:quality(95):focal() 256w, https://a.storyblok.com/f/240783/1080x622/44f5d62fa7/screen_business.png/m/320x373/filters:quality(95):focal() 320w, https://a.storyblok.com/f/240783/1080x622/44f5d62fa7/screen_business.png/m/384x447/filters:quality(95):focal() 384w, https://a.storyblok.com/f/240783/1080x622/44f5d62fa7/screen_business.png/m/450x524/filters:quality(95):focal() 450w, https://a.storyblok.com/f/240783/1080x622/44f5d62fa7/screen_business.png/m/600x699/filters:quality(95):focal() 600w, https://a.storyblok.com/f/240783/1080x622/44f5d62fa7/screen_business.png/m/768x894/filters:quality(95):focal() 768w, https://a.storyblok.com/f/240783/1080x622/44f5d62fa7/screen_business.png/m/1024x1192/filters:quality(95):focal() 1024w, https://a.storyblok.com/f/240783/1080x622/44f5d62fa7/screen_business.png/m/1360x1583/filters:quality(95):focal() 1360w, https://a.storyblok.com/f/240783/1080x622/44f5d62fa7/screen_business.png/m/1720x2002/filters:quality(95):focal() 1720w"
             alt=""

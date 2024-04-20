@@ -11,7 +11,7 @@
 .footer-primary {
   flex-direction: row;
   gap: 6rem;
-  padding: 0 calc(22 * var(--space));
+  padding: 0 88px;
   width: 100%;
   max-width: 119.375rem;
   margin: 0 auto;
@@ -91,7 +91,7 @@
 }
 
 .footer-madeby {
-  left: calc(22 * var(--space));
+  left: 88px;
   margin-top: 0;
   position: absolute;
   bottom: 2.5rem;
@@ -123,4 +123,43 @@
 
 .footer-madeby:hover svg {
   color: #ccd6e8;
+}
+
+@media (max-width: 1326px) {
+  .footer-primary {
+    padding: 0 40px;
+  }
+}
+@media (max-width: 768px) {
+  .footer-primary {
+    flex-direction: column;
+    gap: 6rem;
+  }
+  .footer-navwrapper {
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer-logowrapper {
+    width: 100%;
+  }
+  .footer-secondary {
+    flex-direction: column;
+    padding: 0;
+  }
+  .footer-socials,
+  .footer-privacy {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer-madeby {
+    position: static;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

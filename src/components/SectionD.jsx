@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import barging from "../assets/Cargo-Barging-Business.webp";
 import plane from "../assets/Cargo-Plane-Business.webp";
 import rail from "../assets/Cargo-Rail-Business.webp";
@@ -8,8 +8,10 @@ import truck from "../assets/Cargo-Truck-Business.webp";
 const SectionD = () => {
   const [vidIndex, setVidIndex] = useState(0);
   const [translateX, setTranslateX] = useState(0);
+  const [translateY, setTranslateY] = useState(0);
   const [opacity, setOpacity] = useState(1);
   const images = [ship, rail, plane, barging, truck];
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -17,18 +19,37 @@ const SectionD = () => {
       setOpacity(0);
       setTimeout(() => {
         setVidIndex((vidIndex + 1) % images.length);
-        setTranslateX(-10);
       }, 300);
       setTimeout(() => {
+        setTranslateX(-10);
         setOpacity(1);
-      }, 450);
+      }, 500);
     }, 2000);
 
     return () => clearInterval(interval);
   });
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const sectionRect = sectionRef.current.getBoundingClientRect();
+      const isVisible =
+        sectionRect.top < window.innerHeight && sectionRect.bottom >= 0;
+      if (isVisible) {
+        const scrollPosition = window.scrollY;
+        const parallaxValue = 310 - scrollPosition * 0.1;
+        setTranslateY(window.innerWidth < 768 ? 0 : parallaxValue);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="section-4">
+    <div className="section-4" ref={sectionRef}>
       <div className="section-4-container">
         <div className="section-4-content">
           <h3>How we Move</h3>
@@ -65,7 +86,10 @@ const SectionD = () => {
             </a>
           </div>
         </div>
-        <div className="section-4-graphic">
+        <div
+          className="section-4-graphic"
+          style={{ transform: `translateY(${translateY}px)` }}
+        >
           <div className="section-4-vidwrapper">
             <div className="section-4-vid">
               <img

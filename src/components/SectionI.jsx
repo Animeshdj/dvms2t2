@@ -17,7 +17,7 @@ const SectionI = () => {
   };
 
   useEffect(() => {
-    setTranslateX(carouselIndex * -105);
+    setTranslateX(window.innerWidth * carouselIndex * 1.1);
     // console.log(translateX);
   }, [carouselIndex]);
 
@@ -59,7 +59,7 @@ const SectionI = () => {
               <div className="section-9-carousel">
                 <div
                   className="carousel-container"
-                  style={{ transform: `translateX(${translateX}rem)` }}
+                  style={{ transform: `translateX(-${translateX}px)` }}
                 >
                   <div className="carousel-item">
                     <div className="carousel-blog">

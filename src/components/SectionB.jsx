@@ -4,25 +4,31 @@ const SectionB = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [translateY, setTranslateY] = useState();
   const [opacity, setOpacity] = useState(1);
-  const [activeParagraph, setActiveParagraph] = useState(0);
+  const [activeParagraph, setActiveParagraph] = useState();
   const images = [
     "https://a.storyblok.com/f/240783/424x283/78ab1c3609/we-believe-in-people-compressed-2.png",
     "https://a.storyblok.com/f/240783/1890x1417/fc3f9f86ec/aircharter-2.png",
     "https://a.storyblok.com/f/240783/632x796/2481202365/sandra.jpg",
     "https://a.storyblok.com/f/240783/1920x781/6e425f1422/untitled_compressed.png",
   ];
+
   useEffect(() => {
-    const interval = setInterval(() => {
+    setActiveParagraph(0);
+  }, []);
+
+  useEffect(() => {
+    const interval = setTimeout(() => {
       setOpacity(0);
       setTimeout(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        console.log("interval ended");
       }, 400);
-    }, 5000);
+    }, 9000);
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, [images.length, activeParagraph]);
 
   useEffect(() => {
-    setTranslateY(currentIndex * 50);
+    setTranslateY(window.innerWidth < 768 ? 0 : currentIndex * 50);
     setTimeout(() => {
       setOpacity(1);
     }, 100);
@@ -31,9 +37,9 @@ const SectionB = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveParagraph((prevIndex) => (prevIndex + 1) % 4);
-    }, 5000);
+    }, 9000);
     return () => clearInterval(interval);
-  }, []);
+  }, [activeParagraph]);
 
   return (
     <div className="section-2">
@@ -76,7 +82,9 @@ const SectionB = () => {
                 </p>
               </div>
               <div className="section-2-line">
-                <div className="line"></div>
+                <div className="line">
+                  <div className="line-overlay" />
+                </div>
               </div>
             </div>
           </div>
@@ -102,7 +110,9 @@ const SectionB = () => {
                 </p>
               </div>
               <div className="section-2-line">
-                <div className="line"></div>
+                <div className="line">
+                  <div className="line-overlay" />
+                </div>
               </div>
             </div>
           </div>
@@ -127,7 +137,9 @@ const SectionB = () => {
                 </p>
               </div>
               <div className="section-2-line">
-                <div className="line"></div>
+                <div className="line">
+                  <div className="line-overlay" />
+                </div>
               </div>
             </div>
           </div>
@@ -152,7 +164,9 @@ const SectionB = () => {
                 </p>
               </div>
               <div className="section-2-line">
-                <div className="line"></div>
+                <div className="line">
+                  <div className="line-overlay" />
+                </div>
               </div>
             </div>
           </div>

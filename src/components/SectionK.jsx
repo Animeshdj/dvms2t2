@@ -1,8 +1,30 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const SectionK = () => {
+  const [parallaxY, setParallaxY] = useState(0);
+  const sectionRef = useRef();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sectionRect = sectionRef.current.getBoundingClientRect();
+      const isVisible =
+        sectionRect.top < window.innerHeight && sectionRect.bottom >= 0;
+      if (isVisible) {
+        const scrollPosition = window.scrollY;
+        const parallaxValue = 500 + (sectionRect.top - scrollPosition) * 0.05;
+        setParallaxY(parallaxValue);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="section-k">
+    <div className="section-k" ref={sectionRef}>
       <svg className="section-k-darkmask">
         <clipPath id="darkContactMask">
           <rect className="section-k-darkmask-rect"></rect>
@@ -14,7 +36,10 @@ const SectionK = () => {
         </clipPath>
       </svg>
       <div className="section-k-imgwrapper">
-        <div className="section-k-img">
+        <div
+          className="section-k-img"
+          style={{ transform: `translateY(-${parallaxY}px)` }}
+        >
           <img
             srcSet="https://a.storyblok.com/f/240783/3699x5625/cf26c4631b/5-1-8.jpg/m/256x198/filters:quality(95):focal() 256w, https://a.storyblok.com/f/240783/3699x5625/cf26c4631b/5-1-8.jpg/m/320x248/filters:quality(95):focal() 320w, https://a.storyblok.com/f/240783/3699x5625/cf26c4631b/5-1-8.jpg/m/384x297/filters:quality(95):focal() 384w, https://a.storyblok.com/f/240783/3699x5625/cf26c4631b/5-1-8.jpg/m/450x348/filters:quality(95):focal() 450w, https://a.storyblok.com/f/240783/3699x5625/cf26c4631b/5-1-8.jpg/m/600x465/filters:quality(95):focal() 600w, https://a.storyblok.com/f/240783/3699x5625/cf26c4631b/5-1-8.jpg/m/768x595/filters:quality(95):focal() 768w, https://a.storyblok.com/f/240783/3699x5625/cf26c4631b/5-1-8.jpg/m/1024x793/filters:quality(95):focal() 1024w, https://a.storyblok.com/f/240783/3699x5625/cf26c4631b/5-1-8.jpg/m/1360x1053/filters:quality(95):focal() 1360w, https://a.storyblok.com/f/240783/3699x5625/cf26c4631b/5-1-8.jpg/m/1720x1332/filters:quality(95):focal() 1720w"
             alt=""

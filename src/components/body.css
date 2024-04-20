@@ -5,7 +5,7 @@
 
 .section-1 {
   margin-top: 8rem;
-  padding: 0 calc(22 * var(--space));
+  padding: 0 88px;
   width: 100%;
   height: 100%;
   min-height: 100%;
@@ -104,11 +104,11 @@
   gap: 1vw;
   width: 100%;
   /* z-index: 1; */
-  /* grid-template-columns: repeat(12, 1fr); */
+  grid-template-columns: repeat(12, 1fr);
 }
 
 .section-1 p {
-  margin-top: calc(2 * var(--space));
+  margin-top: 8px;
 }
 
 .section-1 p:first-of-type {
@@ -172,6 +172,8 @@
   border-top-left-radius: 2.5rem;
   display: block;
   position: relative;
+  height: auto;
+  transition: all 0.3s ease;
 }
 
 .section-2-container {
@@ -181,7 +183,7 @@
   width: 100%;
   height: 100%;
   grid-template-columns: repeat(12, 1fr);
-  padding: 0 calc(22 * var(--space));
+  padding: 0 88px;
 }
 
 .section-2-carousel-container {
@@ -238,6 +240,11 @@
   gap: 0;
 }
 
+.section-2 .section-2-content-item-text p {
+  max-height: 500px;
+  transition: all 0.5s ease;
+}
+
 .section-2-line {
   width: 100%;
   height: 0.125rem;
@@ -248,7 +255,7 @@
 .line {
   width: 100%;
   height: 0.125rem;
-  background-color: #fff;
+  background-color: #335da3;
 }
 
 .section-2-carousel-container p {
@@ -307,8 +314,8 @@
 
 .section-3 {
   margin-block: 7.5rem;
-  padding-left: calc(22 * var(--space));
-  padding-right: calc(22 * var(--space));
+  padding-left: 88px;
+  padding-right: 88px;
   width: 100%;
   max-width: 119.375rem;
   min-height: 100%;
@@ -562,7 +569,7 @@
 
 .section-4 {
   margin-block: 7.5rem;
-  padding: 0 calc(22 * var(--space));
+  padding: 0 88px;
   width: 100%;
   max-width: 119.375rem;
   margin: 0 auto;
@@ -654,7 +661,7 @@
 .section-5 {
   margin-block: 11.5rem;
   overflow-y: hidden;
-  padding: 0 calc(22 * var(--space));
+  padding: 0 88px;
   width: 100%;
   max-width: 119.375rem;
   margin: 0 auto;
@@ -748,7 +755,7 @@
 
 .section-6 {
   margin-block: 7.5rem;
-  padding: 0 calc(22 * var(--space));
+  padding: 0 88px;
   width: 100%;
   max-width: 119.375rem;
   position: relative;
@@ -793,7 +800,7 @@
 }
 .section-7 {
   margin-block: 7.5rem;
-  padding: 0 calc(22 * var(--space));
+  padding: 0 88px;
   width: 100%;
   max-width: 119.375rem;
   margin: 0 auto;
@@ -834,7 +841,7 @@
 }
 
 .section-7-vidwrapper {
-  width: calc(100% + 22 * var(--space));
+  width: calc(100% + 22 * 4px);
   right: 0;
   transform: translateX(0);
   border-top-right-radius: 6rem;
@@ -864,7 +871,7 @@
   border-top-right-radius: 6rem;
   height: calc(100% + 12.5rem);
   overflow: hidden;
-  width: calc(100% + 8 * var(--space));
+  width: calc(100% + 8 * 4px);
 }
 
 .section-7-video {
@@ -976,7 +983,7 @@
 
 .section-8 {
   margin-block: 7.5rem;
-  padding: 0 calc(22 * var(--space));
+  padding: 0 88px;
   width: 100%;
   max-width: 119.375rem;
   margin: 0 auto;
@@ -1047,6 +1054,7 @@
   height: 100%;
   align-items: center;
   transform-style: preserve-3d;
+  /* transition: all 0.3s ease; */
 }
 
 .section-8-card-imgwrapper {
@@ -1111,7 +1119,7 @@
 }
 
 .section-9 {
-  padding: 0 calc(22 * var(--space));
+  padding: 0 88px;
   width: 100%;
   max-width: 119.375rem;
   margin: 0 auto;
@@ -1421,7 +1429,7 @@ button {
 
 .section-j {
   margin-block: 5rem;
-  padding: 0 calc(22 * var(--space));
+  padding: 0 88px;
   width: 100%;
   max-width: 119.375rem;
   margin: 0 auto;
@@ -1475,7 +1483,6 @@ button {
 
 .section-j-card:first-of-type {
   border-bottom-left-radius: 6rem;
-  border-top-right-radius: 0;
   background-color: #ccd6e8;
 }
 
@@ -1632,8 +1639,8 @@ button {
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 0;
   gap: 0;
-  padding-left: calc(22 * var(--space));
-  padding-right: calc(22 * var(--space));
+  padding-left: 88px;
+  padding-right: 88px;
   max-width: 119.375rem;
   margin: 0 auto;
   position: relative;
@@ -1717,8 +1724,11 @@ button {
   transform: translateX(0.5rem);
 }
 
-.inactive-paragraph p {
-  display: none;
+.section-2 .inactive-paragraph p {
+  transition: all 0s ease;
+  opacity: 0;
+  transform: translateY(-100%);
+  max-height: 0px;
 }
 
 .carousel-item:hover .carousel-blog-img-img {
@@ -1728,4 +1738,303 @@ button {
 
 .carousel-item:hover .carousel-blog-title {
   text-decoration: underline;
+}
+
+.line-overlay {
+  overflow: hidden;
+  height: 2px;
+  background: #fff;
+  transition: all 9.3s ease-in-out;
+  width: 100%;
+}
+
+.inactive-paragraph .line-overlay {
+  transition: none;
+  width: 0%;
+}
+
+.inactive-paragraph h2 {
+  color: #6685ba;
+}
+
+@media (max-width: 1326px) {
+  .section-1,
+  .section-3,
+  .section-4,
+  .section-5,
+  .section-6,
+  .section-7,
+  .section-8,
+  .section-9,
+  .section-j,
+  .section-2-container {
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 1140px) {
+  .section-1 {
+    margin: 6rem auto 0;
+  }
+  .section-1 h1 {
+    font: 700 6.5rem / 7rem "Exo";
+  }
+}
+
+@media (max-width: 900px) {
+  .sec1-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    grid-gap: 1.5rem;
+    padding: 0;
+  }
+  .section-1,
+  .section-3,
+  .section-4,
+  .section-5,
+  .section-6,
+  .section-7,
+  .section-8,
+  .section-9,
+  .section-j {
+    padding: 0 16px;
+  }
+  .sec1-container::before,
+  .section-1-svg {
+    display: none;
+  }
+  .section-1-vid {
+    grid-column: span 11;
+    border: none;
+    position: static;
+    order: -1;
+  }
+  .darkcontent {
+    padding: 1rem;
+  }
+  .lightcontent {
+    display: none;
+  }
+  .section-8-container {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 2.5rem 0;
+    gap: 3rem;
+  }
+  .section-8-largetitle p {
+    font: 500 3rem / 3.5rem "Exo";
+  }
+  .section-j-container {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 1.5rem 0;
+  }
+  .section-j-card {
+    grid-column: span 4;
+    padding: 4rem;
+  }
+  .section-j-card:first-of-type {
+    border-top-right-radius: 6rem;
+    border-bottom-left-radius: 0;
+  }
+  .section-j-card:last-of-type {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 6rem;
+  }
+  .section-j-container::after {
+    grid-column: 3 / span 2;
+    height: 60%;
+    border-top-left-radius: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-1 h1 {
+    font: 700 4rem / 4.375rem "Exo";
+  }
+  .section-2-container {
+    padding: 0 16px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .section-2-carousel-container {
+    grid-column: span 4;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .section-2-content {
+    padding: 0;
+  }
+  .section-2 .inactive-paragraph p {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 500px;
+  }
+  .section-2 .inactive-paragraph h2 {
+    color: #fff;
+  }
+  .section-2 .line-overlay {
+    display: none;
+  }
+  .section-2-content-item {
+    padding: 0 0 2rem;
+  }
+  .section-3-container {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 2.5rem 0;
+  }
+  .section-3-content {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 0 40px;
+  }
+  .section-3-content::after {
+    display: none;
+  }
+  .sec3-info {
+    font: 400 1.375rem / 2rem "Schibsted Grotesk";
+  }
+  .section-4-container {
+    grid-template-columns: repeat(4, 1fr);
+    margin: 2.5rem 0;
+    gap: 2.5rem;
+  }
+  .section-4-content {
+    grid-column: span 4;
+    grid-row: none;
+  }
+  .section-4-graphic {
+    grid-column: span 4;
+    grid-row: 1;
+    max-width: unset;
+  }
+  .section-4-vid {
+    transform: translateX(-4 rem) translateY(-50%);
+  }
+  .section-5-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .section-5-content {
+    grid-column: span 4;
+    grid-row: none;
+    padding-top: 50%;
+  }
+  .section-5-graphic {
+    grid-column: span 4;
+    grid-row: 1;
+    height: 60%;
+  }
+  .section-5-background {
+    height: 100%;
+    width: 100%;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 2.5rem;
+    border-top-right-radius: 2.5rem;
+  }
+  .section-5-vidwrapper {
+    height: 50%;
+    position: absolute;
+  }
+  .section-5-vidwrapper img {
+    left: 25%;
+    height: 50%;
+    width: 50%;
+  }
+  .section-6-container {
+    grid-template-columns: repeat(4, 1fr);
+    margin: 2.5rem 0;
+    gap: 2.5rem;
+  }
+  .section-6-content {
+    grid-column: span 4;
+    grid-row: unset;
+  }
+  .section-6-imgwrapper {
+    grid-column: span 4;
+    grid-row: 1;
+  }
+  .section-6-content h3 {
+    font: 500 2.5rem / 3rem "Exo";
+  }
+  .section-7-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .section-7-about {
+    grid-column: span 4;
+    min-height: 26.25rem;
+    display: flex;
+    padding-bottom: 1.5rem;
+  }
+  .section-7-about-text {
+    font: 700 3rem / 3.5rem "Exo";
+  }
+  .section-7-content {
+    border: none;
+    padding: 3rem 0 0;
+  }
+  .section-7-content::before {
+    display: none;
+  }
+  .section-7-content-text {
+    font: 500 3rem/3.5rem "Exo";
+    grid-column: span 12;
+  }
+  .section-7-info-text {
+    grid-column: span 12;
+  }
+  .section-7-info {
+    padding: 2.5rem 0 4rem;
+  }
+  .section-8-container {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 2.5rem 0;
+    gap: 3rem;
+  }
+  .section-8-largetitle p {
+    font: 500 3rem / 3.5rem "Exo";
+  }
+  .section-j-container {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 1.5rem 0;
+  }
+  .section-j-card {
+    grid-column: span 4;
+    padding: 1.5rem 2rem;
+  }
+  .section-j-card:first-of-type {
+    border-top-right-radius: 2.5rem;
+    border-bottom-left-radius: 0;
+  }
+  .section-j-card:last-of-type {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 2.5rem;
+  }
+  .section-j-container::after {
+    grid-column: 3 / span 2;
+    height: 60%;
+    border-top-left-radius: 2.5rem;
+  }
+  .section-k-imgwrapper {
+    width: calc(100% - 16px);
+    height: 100%;
+    max-height: 25rem;
+    position: relative;
+  }
+  .section-k-content {
+    min-height: 20rem;
+  }
+  .section-k-lightcontent {
+    display: none;
+  }
+  .section-k-content-container {
+    padding: 0 16px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .section-k-introwrapper {
+    grid-column: span 4;
+    gap: 1rem;
+    margin: 1.5rem 0 0;
+  }
+  .section-k-title {
+    font: 700 3.5rem / 4rem "Exo";
+  }
+  .section-k-intro {
+    margin: 0;
+    font: 400 1.125rem / 2rem "Schibsted Grotesk";
+  }
 }

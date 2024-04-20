@@ -5,39 +5,57 @@ const SectionJ = () => {
   const [y, setY] = useState(0);
   const [x1, setX1] = useState(0);
   const [y1, setY1] = useState(0);
+  const [transition, setTransition] = useState(0);
+  const [isMouseEnabled, setIsMouseEnabled] = useState(true);
   const handleMouseMove = (e) => {
-    const rect = e.target.getBoundingClientRect();
+    if (window.innerWidth > 768) {
+      if (isMouseEnabled === false) return;
 
-    const width = rect.width;
-    const height = rect.height;
+      const rect = e.target.getBoundingClientRect();
 
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
+      const width = rect.width;
+      const height = rect.height;
 
-    const x = mouseX / width - 0.5;
-    const y = mouseY / height - 0.5;
-    setX(x);
-    setY(y);
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+
+      const x = mouseX / width - 0.5;
+      const y = mouseY / height - 0.5;
+      setX(x);
+      setY(y);
+      setTransition(0);
+    }
   };
   const handleMouseMove1 = (e) => {
-    const rect = e.target.getBoundingClientRect();
+    if (window.innerWidth > 768) {
+      if (isMouseEnabled === false) return;
+      const rect = e.target.getBoundingClientRect();
 
-    const width = rect.width;
-    const height = rect.height;
+      const width = rect.width;
+      const height = rect.height;
 
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
 
-    const x = mouseX / width - 0.5;
-    const y = mouseY / height - 0.5;
-    setX1(x);
-    setY1(y);
+      const x = mouseX / width - 0.5;
+      const y = mouseY / height - 0.5;
+      setX1(x);
+      setY1(y);
+      setTransition(0);
+    }
   };
   const handleMouseOut = () => {
-    setX(0);
-    setY(0);
-    setX1(0);
-    setY1(0);
+    if (window.innerWidth > 768) {
+      setX(0);
+      setY(0);
+      setX1(0);
+      setY1(0);
+      setTransition(0.3);
+      setIsMouseEnabled(false);
+      setTimeout(() => {
+        setIsMouseEnabled(true);
+      }, 400);
+    }
   };
 
   return (
@@ -51,6 +69,7 @@ const SectionJ = () => {
             transform: `translateY(${x * 12}px) rotateY(${
               x * 14
             }deg) translateX(${y * 12}px) rotateX(${y * -22}deg)`,
+            transition: `all ${transition}s ease`,
           }}
         >
           <p className="section-j-title">
@@ -112,6 +131,7 @@ const SectionJ = () => {
             transform: `translateY(${x1 * 12}px) rotateY(${
               x1 * 14
             }deg) translateX(${y1 * 12}px) rotateX(${y1 * -22}deg)`,
+            transition: `all ${transition}s ease`,
           }}
         >
           <p className="section-j-title">

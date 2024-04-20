@@ -271,6 +271,22 @@ const Nav_primary = () => {
           </svg>
         </a>
       </div>
+      <div className="nav-hamburger">
+        <i className="btn-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="currentColor"
+              fillRule="evenodd"
+              d="M1.65 18.003a.6.6 0 0 1 .6-.6h19.5a.6.6 0 1 1 0 1.2H2.25a.6.6 0 0 1-.6-.6ZM1.65 12.003a.6.6 0 0 1 .6-.6h19.5a.6.6 0 1 1 0 1.2H2.25a.6.6 0 0 1-.6-.6ZM1.65 6.003a.6.6 0 0 1 .6-.6h19.5a.6.6 0 1 1 0 1.2H2.25a.6.6 0 0 1-.6-.6Z"
+              clipRule="evenodd"
+            ></path>
+          </svg>
+        </i>
+      </div>
     </div>
   );
 };

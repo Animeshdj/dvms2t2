@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import flooring from "../assets/Flooring-Business.png";
 import glass from "../assets/Glass-Business.png";
 import minerals from "../assets/Minerals-Business.png";
@@ -30,6 +30,28 @@ const SectionE = () => {
     wood,
     projectCargo,
   ];
+  const [parallaxY, setParallaxY] = useState(0);
+  const sectionRef = useRef();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sectionRect = sectionRef.current.getBoundingClientRect();
+      const isVisible =
+        sectionRect.top < window.innerHeight && sectionRect.bottom >= 0;
+      if (isVisible) {
+        const scrollPosition = window.scrollY;
+        const parallaxValue = 400 - scrollPosition * 0.1;
+        setParallaxY(window.innerWidth < 768 ? 0 : parallaxValue);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setTranslateY(-250);
@@ -37,16 +59,17 @@ const SectionE = () => {
       setTimeout(() => {
         setImgIndex((imgIndex + 1) % images.length);
         setTranslateY(0);
-      }, 200);
+      }, 300);
       setTimeout(() => {
         setOpacity(1);
-      }, 400);
+      }, 600);
     }, 2000);
 
     return () => clearInterval(interval);
   });
+
   return (
-    <div className="section-5">
+    <div className="section-5" ref={sectionRef}>
       <div className="section-5-container">
         <div className="section-5-content">
           <h3>What we Move</h3>
@@ -82,7 +105,10 @@ const SectionE = () => {
           </a>
         </div>
         <div className="section-5-graphic">
-          <div className="section-5-vidwrapper">
+          <div
+            className="section-5-vidwrapper"
+            style={{ transform: `translateY(${parallaxY}px)` }}
+          >
             <img
               loading="eager"
               src={images[imgIndex]}

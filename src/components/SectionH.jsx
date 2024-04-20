@@ -7,35 +7,49 @@ const SectionH = () => {
   const [y1, setY1] = useState(0);
   const [x2, setX2] = useState(0);
   const [y2, setY2] = useState(0);
+  const [isMouseEnabled, setIsMouseEnabled] = useState(true);
+  const [transition, setTransition] = useState(0);
   const handleMouseMove = (e) => {
-    const rect = e.target.getBoundingClientRect();
+    if (window.innerWidth > 768) {
+      if (isMouseEnabled === false) return;
 
-    const width = rect.width;
-    const height = rect.height;
+      const rect = e.target.getBoundingClientRect();
 
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
+      const width = rect.width;
+      const height = rect.height;
 
-    const x = mouseX / width - 0.5;
-    const y = mouseY / height - 0.5;
-    setX(x);
-    setY(y);
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+
+      const x = mouseX / width - 0.5;
+      const y = mouseY / height - 0.5;
+      setX(x);
+      setY(y);
+      setTransition(0);
+    }
   };
   const handleMouseMove1 = (e) => {
-    const rect = e.target.getBoundingClientRect();
+    if (window.innerWidth > 768) {
+      if (isMouseEnabled === false) return;
 
-    const width = rect.width;
-    const height = rect.height;
+      const rect = e.target.getBoundingClientRect();
 
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
+      const width = rect.width;
+      const height = rect.height;
 
-    const x = mouseX / width - 0.5;
-    const y = mouseY / height - 0.5;
-    setX1(x);
-    setY1(y);
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+
+      const x = mouseX / width - 0.5;
+      const y = mouseY / height - 0.5;
+      setX1(x);
+      setY1(y);
+      setTransition(0);
+    }
   };
   const handleMouseMove2 = (e) => {
+    if (isMouseEnabled === false) return;
+
     const rect = e.target.getBoundingClientRect();
 
     const width = rect.width;
@@ -48,15 +62,23 @@ const SectionH = () => {
     const y = mouseY / height - 0.5;
     setX2(x);
     setY2(y);
+    setTransition(0);
   };
 
   const handleMouseOut = () => {
-    setX(0);
-    setY(0);
-    setX1(0);
-    setY1(0);
-    setX2(0);
-    setY2(0);
+    if (window.innerWidth > 768) {
+      setX(0);
+      setY(0);
+      setX1(0);
+      setY1(0);
+      setX2(0);
+      setY2(0);
+      setTransition(0.3);
+      setIsMouseEnabled(false);
+      setTimeout(() => {
+        setIsMouseEnabled(true);
+      }, 200);
+    }
   };
 
   return (
@@ -104,6 +126,7 @@ const SectionH = () => {
               transform: `translateY(${x * 12}px) rotateY(${
                 x * 14
               }deg) translateX(${y * 12}px) rotateX(${y * -22}deg)`,
+              transition: `all ${transition}s ease`,
             }}
           >
             <div className="section-8-card-imgwrapper">
@@ -165,6 +188,7 @@ const SectionH = () => {
               transform: `translateY(${x1 * 12}px) rotateY(${
                 x1 * 14
               }deg) translateX(${y1 * 12}px) rotateX(${y1 * -22}deg)`,
+              transition: `all ${transition}s ease`,
             }}
           >
             <div className="section-8-card-imgwrapper">
@@ -227,6 +251,7 @@ const SectionH = () => {
               transform: `translateY(${x2 * 12}px) rotateY(${
                 x2 * 14
               }deg) translateX(${y2 * 12}px) rotateX(${y2 * -22}deg)`,
+              transition: `all ${transition}s ease`,
             }}
           >
             <div className="section-8-card-imgwrapper">

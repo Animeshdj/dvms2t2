@@ -16,6 +16,7 @@ const Nav = () => {
       }
 
       setPrevScrollY(currentScrollY);
+      // console.log("Hello");
     };
 
     window.addEventListener("scroll", handleScroll);
