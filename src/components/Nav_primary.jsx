@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./nav.css";
 
 const Nav_primary = () => {
+  const [hamburger, setHamburger] = useState(true);
+
+  const toggleHamburger = () => {
+    setHamburger((prev) => !prev);
+  };
+
   return (
     <div className="nav-primary">
       <a href="/" className="nav-logo-link">
@@ -11,7 +17,10 @@ const Nav_primary = () => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <g className="nav-logo-1">
+          <g
+            className="nav-logo-1"
+            style={{ color: hamburger ? "#9faeb5" : "#fff" }}
+          >
             <path
               d="M127.9 35.859H117.855V10.7461H117.751L111.344 35.8659H104.475L97.8608 10.7461H97.7575V35.8659H89.6552V0.694031H103.752L108.774 19.3513H108.877L113.693 0.694031H127.893V35.859H127.9Z"
               fill="currentColor"
@@ -81,7 +90,10 @@ const Nav_primary = () => {
               fill="currentColor"
             ></path>
           </g>
-          <g className="nav-logo-2">
+          <g
+            className="nav-logo-2"
+            style={{ color: hamburger ? "#00358d" : "#fff" }}
+          >
             <path
               d="M19.8532 28.3271C29.2081 28.6302 36.4412 35.202 44.5079 39.0597C54.9443 44.3227 66.6757 49.5236 78.6138 46.9955V33.6245C63.6998 35.8014 49.578 28.892 36.9165 21.8586C31.502 18.8138 26.1495 14.8666 19.681 14.6875C12.0414 14.0468 5.04942 18.3385 0 23.7186V35.8082C5.55229 31.2204 12.4961 27.776 19.8532 28.3133V28.3271Z"
               fill="currentColor"
@@ -272,20 +284,71 @@ const Nav_primary = () => {
         </a>
       </div>
       <div className="nav-hamburger">
-        <i className="btn-icon">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <path
-              fill="currentColor"
-              fillRule="evenodd"
-              d="M1.65 18.003a.6.6 0 0 1 .6-.6h19.5a.6.6 0 1 1 0 1.2H2.25a.6.6 0 0 1-.6-.6ZM1.65 12.003a.6.6 0 0 1 .6-.6h19.5a.6.6 0 1 1 0 1.2H2.25a.6.6 0 0 1-.6-.6ZM1.65 6.003a.6.6 0 0 1 .6-.6h19.5a.6.6 0 1 1 0 1.2H2.25a.6.6 0 0 1-.6-.6Z"
-              clipRule="evenodd"
-            ></path>
-          </svg>
+        <i
+          className="btn-icon"
+          onClick={toggleHamburger}
+          style={{ color: hamburger ? "#1f1c16" : "#fff" }}
+        >
+          {hamburger ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                fillRule="evenodd"
+                d="M1.65 18.003a.6.6 0 0 1 .6-.6h19.5a.6.6 0 1 1 0 1.2H2.25a.6.6 0 0 1-.6-.6ZM1.65 12.003a.6.6 0 0 1 .6-.6h19.5a.6.6 0 1 1 0 1.2H2.25a.6.6 0 0 1-.6-.6ZM1.65 6.003a.6.6 0 0 1 .6-.6h19.5a.6.6 0 1 1 0 1.2H2.25a.6.6 0 0 1-.6-.6Z"
+                clipRule="evenodd"
+              ></path>
+            </svg>
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                fillRule="evenodd"
+                d="M23.674.325a.6.6 0 0 1 0 .848l-22.5 22.5a.6.6 0 0 1-.848-.848l22.5-22.5a.6.6 0 0 1 .848 0Z"
+                clipRule="evenodd"
+              ></path>
+              <path
+                fill="currentColor"
+                fillRule="evenodd"
+                d="M.326.325a.6.6 0 0 1 .848 0l22.5 22.5a.6.6 0 1 1-.848.848l-22.5-22.5a.6.6 0 0 1 0-.848Z"
+                clipRule="evenodd"
+              ></path>
+            </svg>
+          )}
         </i>
+      </div>
+      <div
+        className={`hamburger-menu ${
+          hamburger ? "hamburger-inactive" : "hamburger-active"
+        }`}
+      >
+        <div className="hamburger-primary">
+          <div className="hamburger-primarywrapper">
+            <a href="/">Home</a>
+            <a href="/">Services</a>
+            <a href="/">Commodities</a>
+            <a href="/">Digital</a>
+            <a href="/">Careers</a>
+            <a href="/">Life at MPL</a>
+            <a href="/">Jobs</a>
+            <a href="/">About</a>
+            <a href="/">ESG</a>
+            <a href="/">Contact</a>
+          </div>
+        </div>
+        <div className="hamburger-secondary">
+          <a href="/">T&C</a>
+          <a href="/">BLOG</a>
+          <a href="/">LOCATIONS</a>
+          <a href="/">LOG IN</a>
+        </div>
       </div>
     </div>
   );

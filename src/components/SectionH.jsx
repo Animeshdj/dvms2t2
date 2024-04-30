@@ -48,21 +48,23 @@ const SectionH = () => {
     }
   };
   const handleMouseMove2 = (e) => {
-    if (isMouseEnabled === false) return;
+    if (window.innerWidth > 768) {
+      if (isMouseEnabled === false) return;
 
-    const rect = e.target.getBoundingClientRect();
+      const rect = e.target.getBoundingClientRect();
 
-    const width = rect.width;
-    const height = rect.height;
+      const width = rect.width;
+      const height = rect.height;
 
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
 
-    const x = mouseX / width - 0.5;
-    const y = mouseY / height - 0.5;
-    setX2(x);
-    setY2(y);
-    setTransition(0);
+      const x = mouseX / width - 0.5;
+      const y = mouseY / height - 0.5;
+      setX2(x);
+      setY2(y);
+      setTransition(0);
+    }
   };
 
   const handleMouseOut = () => {

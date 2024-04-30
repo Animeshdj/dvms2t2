@@ -209,6 +209,13 @@
   height: 2.5rem;
   color: #1f1c16;
 }
+.hamburger-menu {
+  display: none;
+}
+
+.hamburger-inactive {
+  transform: translateX(100%);
+}
 
 @media (min-width: 1326px) {
   .nav-secondary {
@@ -228,6 +235,66 @@
   }
   .nav-hamburger {
     display: flex;
+  }
+  .hamburger-menu {
+    /* transform: translateX(0); */
+    transition: all 0.3s ease-out;
+    position: absolute;
+    min-width: 100vw;
+    min-height: 100vh;
+    overflow-y: scroll;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle, #0048ba 8%, #00358d 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-block: 3rem;
+    transition: all 0.3s ease;
+  }
+  .hamburger-primary {
+    width: 100%;
+    display: flex;
+    padding: 0.875rem 1.5rem;
+    order: 1;
+    flex-direction: column;
+  }
+  .hamburger-secondary {
+    width: 100%;
+    display: flex;
+    padding: 0.25rem 24px;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    order: 2;
+  }
+  .hamburger-primarywrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    height: 100%;
+    padding-top: 2.5rem;
+  }
+  .hamburger-primarywrapper a {
+    color: #ccd6e8;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    width: max-content;
+    text-align: center;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+    padding: 1rem 0;
+    font: 700 1rem/2rem "Schibsted Grotesk";
+  }
+  .hamburger-secondary a {
+    margin: 0.25rem 0;
+    color: #ccd6e8;
+    padding: 0 1.0625rem 0 0;
+    text-transform: uppercase;
+    border-right: 2px solid #ccd6e8;
+    font: 600 0.75rem/1.5rem "Schibsted Grotesk";
   }
 }
 

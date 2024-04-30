@@ -26,7 +26,8 @@ const Nav = () => {
     };
   }, [prevScrollY]);
 
-  const translateY = scrollDirection === "down" ? "-100%" : "0%";
+  const translateY =
+    window.innerWidth > 1140 && scrollDirection === "down" ? "-100%" : "0%";
   return (
     <div
       className="nav-main"

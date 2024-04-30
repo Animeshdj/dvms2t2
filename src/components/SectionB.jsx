@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import SectionBImage from "./SectionBImage";
+import SectionBContentItem from "./SectionBContentItem";
 
 const SectionB = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -11,6 +13,28 @@ const SectionB = () => {
     "https://a.storyblok.com/f/240783/632x796/2481202365/sandra.jpg",
     "https://a.storyblok.com/f/240783/1920x781/6e425f1422/untitled_compressed.png",
   ];
+  const contentItems = [
+    {
+      title: "We Believe in People",
+      paragraph:
+        "We believe in our people because they are our greatest asset. At MPL, we are not just a company; we are a family. Each and every one of us shares our unique MPL culture, in which everyone is valued, supported, and empowered to reach their full potential.",
+    },
+    {
+      title: "We Solve Each and Any Shipping Problem",
+      paragraph:
+        "We work with teams per commodity, each with specific domain expertise, to provide high-quality solutions or knowledge for any product or request. With offices around the world, we have excellent knowledge of local markets, laws, and customs.",
+    },
+    {
+      title: "Single Point of Contact",
+      paragraph:
+        "Our colleagues assist and guide customers from end to end in all logistics processes, including customs clearance and tender and procurement services.",
+    },
+    {
+      title: "Flexible & Fast Decision-Making",
+      paragraph:
+        "Our flexibility and desire to help customers in any way possible really sets us apart. Our fast decision-making comes from the open internal communication strategy we follow.",
+    },
+  ];
 
   useEffect(() => {
     setActiveParagraph(0);
@@ -21,14 +45,14 @@ const SectionB = () => {
       setOpacity(0);
       setTimeout(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-        console.log("interval ended");
+        // console.log("interval ended");
       }, 400);
     }, 9000);
     return () => clearInterval(interval);
   }, [images.length, activeParagraph]);
 
   useEffect(() => {
-    setTranslateY(window.innerWidth < 768 ? 0 : currentIndex * 50);
+    setTranslateY(window.innerWidth > 768 ? currentIndex * 50 : 0);
     setTimeout(() => {
       setOpacity(1);
     }, 100);
@@ -47,129 +71,26 @@ const SectionB = () => {
         <div className="section-2-carousel-container">
           <p>We’re Different Because</p>
           <div className="section-2-carousel-imagesection">
-            <div
-              className="sec2-image s2img1"
-              style={{
-                transform: `translateY(${translateY}px)`,
-                opacity: `${opacity}`,
-              }}
-            >
-              <img src={images[currentIndex]} />
-            </div>
+            <SectionBImage
+              src={images[currentIndex]}
+              translateY={translateY}
+              opacity={opacity}
+            />
           </div>
         </div>
         <div className="section-2-content">
-          <div className="section-2-content-item-container">
-            <div
-              className={
-                activeParagraph === 0
-                  ? "section-2-content-item"
-                  : "section-2-content-item inactive-paragraph"
-              }
+          {contentItems.map((item, index) => (
+            <SectionBContentItem
+              key={index}
+              title={item.title}
+              paragraph={item.paragraph}
+              isActive={index === activeParagraph}
               onClick={() => {
-                setActiveParagraph(0);
-                setCurrentIndex(0);
+                setActiveParagraph(index);
+                setCurrentIndex(index);
               }}
-            >
-              <h2>We Believe in People</h2>
-              <div className="section-2-content-item-text">
-                <p>
-                  We believe in our people because they are our greatest asset.
-                  At MPL, we are not just a company; we are a <b>family</b> .
-                  Each and every one of us shares our unique MPL culture, in
-                  which everyone is valued, supported, and empowered to reach
-                  their full potential.
-                </p>
-              </div>
-              <div className="section-2-line">
-                <div className="line">
-                  <div className="line-overlay" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="section-2-content-item-container">
-            <div
-              className={
-                activeParagraph === 1
-                  ? "section-2-content-item"
-                  : "section-2-content-item inactive-paragraph"
-              }
-              onClick={() => {
-                setActiveParagraph(1);
-                setCurrentIndex(1);
-              }}
-            >
-              <h2>We Solve Each and Any Shipping Problem</h2>
-              <div className="section-2-content-item-text">
-                <p>
-                  We work with teams per commodity, each with specific domain
-                  expertise, to provide high-quality solutions or knowledge for
-                  any product or request. With offices around the world, we have
-                  excellent knowledge of local markets, laws, and customs.
-                </p>
-              </div>
-              <div className="section-2-line">
-                <div className="line">
-                  <div className="line-overlay" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="section-2-content-item-container">
-            <div
-              className={
-                activeParagraph === 2
-                  ? "section-2-content-item"
-                  : "section-2-content-item inactive-paragraph"
-              }
-              onClick={() => {
-                setActiveParagraph(2);
-                setCurrentIndex(2);
-              }}
-            >
-              <h2>Single Point of Contact</h2>
-              <div className="section-2-content-item-text">
-                <p>
-                  Our colleagues assist and guide customers from end to end in
-                  all logistics processes, including customs clearance and
-                  tender and procurement services.
-                </p>
-              </div>
-              <div className="section-2-line">
-                <div className="line">
-                  <div className="line-overlay" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="section-2-content-item-container">
-            <div
-              className={
-                activeParagraph === 3
-                  ? "section-2-content-item"
-                  : "section-2-content-item inactive-paragraph"
-              }
-              onClick={() => {
-                setActiveParagraph(3);
-                setCurrentIndex(3);
-              }}
-            >
-              <h2>Flexible & Fast Decision-Making</h2>
-              <div className="section-2-content-item-text">
-                <p>
-                  Our flexibility and desire to help customers in any way
-                  possible really sets us apart. Our fast decision-making comes
-                  from the open internal communication strategy we follow.
-                </p>
-              </div>
-              <div className="section-2-line">
-                <div className="line">
-                  <div className="line-overlay" />
-                </div>
-              </div>
-            </div>
-          </div>
+            />
+          ))}
         </div>
       </div>
     </div>

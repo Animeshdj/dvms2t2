@@ -1,8 +1,4 @@
-import React from "react";
-
 const SectionA = () => {
-  //   let width = document.getElementById(".section-1").offsetWidth;
-  //   width = (width * 7) / 12;
   return (
     <section className="section-1">
       <div className="sec1-container">
