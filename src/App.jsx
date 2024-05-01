@@ -3,6 +3,8 @@ import Body from "./components/Body";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import Lenis from "@studio-freight/lenis";
+import ThemeButton from "./components/ThemeButton";
+import { useTheme } from "./components/ThemeContext";
 
 const lenis = new Lenis({
   duration: 1.2,
@@ -17,11 +19,13 @@ function raf(time) {
 requestAnimationFrame(raf);
 
 function App() {
+  const { theme } = useTheme();
   return (
     <>
       <Nav />
       <Body />
       <Footer />
+      <ThemeButton />
     </>
   );
 }

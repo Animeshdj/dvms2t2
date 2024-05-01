@@ -1,0 +1,130 @@
+.theme-button {
+  width: 7.5rem;
+  height: 7.5rem;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 100;
+  border-radius: 50%;
+  background-color: #f6faff;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.theme-rotatingsvg svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  animation: theme-rotation 10s linear infinite;
+  width: 6.75rem;
+  height: 6.75rem;
+  transition: color 0.3s ease-in-out;
+  color: #00235d;
+}
+.theme-rotatingsvg svg:first-of-type {
+  color: #f8e2ac;
+}
+
+.theme-button:hover .theme-rotatingsvg svg:last-of-type {
+  color: #1f1c16;
+}
+
+.theme-inner,
+.theme-innerwrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.theme-inner {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border: 1px solid #6685ba;
+  transition: border 0.3s ease-in-out;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.theme-inner-top,
+.theme-inner-bottom {
+  display: flex;
+  gap: 0.25rem;
+}
+.theme-larger-star {
+  width: 1rem;
+  height: 1rem;
+  transition: all 0.3s ease-in-out;
+  color: #00358d;
+}
+.theme-smaller-star {
+  width: 0.625rem;
+  height: 0.625rem;
+  transition: all 0.3s ease-in-out;
+  color: #00358d;
+}
+
+.theme-button:hover .theme-larger-star {
+  width: 0.625rem;
+  height: 0.625rem;
+  transform: rotate(90deg);
+  color: #1f1c16;
+}
+.theme-button:hover .theme-smaller-star {
+  width: 1rem;
+  height: 1rem;
+  transform: rotate(90deg);
+  color: #1f1c16;
+}
+
+.theme-button:hover {
+  background-color: #f4cb68;
+  color: #1f1c16;
+}
+
+.theme-button:hover .theme-inner {
+  border: 1px solid #1f1c16;
+}
+
+.theme-dark {
+  background-color: #1f1c16;
+}
+.theme-dark:hover {
+  background-color: #00112e;
+}
+
+.theme-dark .theme-inner {
+  border: 1px solid #1f1c16;
+}
+
+.theme-dark .theme-larger-star,
+.theme-dark .theme-smaller-star {
+  color: #f4cb68;
+}
+.theme-dark:hover .theme-larger-star,
+.theme-dark:hover .theme-smaller-star {
+  color: #99aed1;
+}
+
+.theme-dark:hover .theme-rotatingsvg svg {
+  color: #99aed1;
+}
+
+.theme-dark:hover .theme-inner {
+  border: 1px solid #335da3;
+}
+
+@keyframes theme-rotation {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

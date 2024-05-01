@@ -156,7 +156,7 @@ const SectionC = () => {
               className="section-3-slider"
               style={{
                 transform: `translateX(${-translateValue}px)`,
-                transition: "transform 0.3s ease",
+                transition: "transform 0.3s ease ",
               }}
             >
               {locations.slice(0, 8).map((item, index) => (

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./nav.css";
+import { useTheme } from "./ThemeContext";
 
 const Nav_primary = () => {
   const [hamburger, setHamburger] = useState(true);
-
+  const { theme } = useTheme();
   const toggleHamburger = () => {
     setHamburger((prev) => !prev);
   };
@@ -19,7 +20,9 @@ const Nav_primary = () => {
         >
           <g
             className="nav-logo-1"
-            style={{ color: hamburger ? "#9faeb5" : "#fff" }}
+            style={{
+              color: theme ? "#f8e2ac" : hamburger ? "#9faeb5" : "#fff",
+            }}
           >
             <path
               d="M127.9 35.859H117.855V10.7461H117.751L111.344 35.8659H104.475L97.8608 10.7461H97.7575V35.8659H89.6552V0.694031H103.752L108.774 19.3513H108.877L113.693 0.694031H127.893V35.859H127.9Z"
@@ -92,7 +95,9 @@ const Nav_primary = () => {
           </g>
           <g
             className="nav-logo-2"
-            style={{ color: hamburger ? "#00358d" : "#fff" }}
+            style={{
+              color: theme ? "#ceaa53" : hamburger ? "#00358d" : "#fff",
+            }}
           >
             <path
               d="M19.8532 28.3271C29.2081 28.6302 36.4412 35.202 44.5079 39.0597C54.9443 44.3227 66.6757 49.5236 78.6138 46.9955V33.6245C63.6998 35.8014 49.578 28.892 36.9165 21.8586C31.502 18.8138 26.1495 14.8666 19.681 14.6875C12.0414 14.0468 5.04942 18.3385 0 23.7186V35.8082C5.55229 31.2204 12.4961 27.776 19.8532 28.3133V28.3271Z"
@@ -287,7 +292,7 @@ const Nav_primary = () => {
         <i
           className="btn-icon"
           onClick={toggleHamburger}
-          style={{ color: hamburger ? "#1f1c16" : "#fff" }}
+          style={{ color: theme ? "#f8e2ac" : hamburger ? "#1f1c16" : "#fff" }}
         >
           {hamburger ? (
             <svg

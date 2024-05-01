@@ -13,6 +13,10 @@
   transition: all 0.3s ease-in-out;
 }
 
+.nav-darkmode {
+  background-color: #2c2713;
+}
+
 .nav-secondary {
   width: 100%;
   background-color: rgba(204, 214, 232, 0.141);
@@ -33,6 +37,15 @@
   border-right: 0.0625rem solid #ccd6e8;
 }
 
+.nav-darkmode .nav-secondary a {
+  color: #ceaa53;
+  border-right: 0.0625rem solid #655631;
+}
+
+.nav-darkmode .nav-secondary {
+  background-color: #2c2713;
+}
+
 .nav-secondary a:last-of-type {
   border: none;
   padding: 0;
@@ -48,6 +61,12 @@
   flex-direction: row;
   height: 80px;
   background-color: #f6faff;
+}
+
+.nav-darkmode .nav-primary {
+  background-color: #1f1c16;
+  color: #f8e2ac;
+  height: 97px;
 }
 
 .nav-logo-link {
@@ -67,6 +86,13 @@
   color: #00358d;
 }
 
+.nav-darkmode .nav-logo-1 {
+  color: #ceaa53;
+}
+.nav-darkmode .nav-logo-2 {
+  color: #f8e2ac;
+}
+
 .nav-links-link {
   text-decoration: none;
   color: inherit;
@@ -77,7 +103,7 @@
   text-align: center;
   position: relative;
   transition: color 0.3s ease-in-out;
-  color: #00112e;
+  color: inherit;
   font: 700 1rem / 2rem "Schibsted Grotesk";
 }
 
@@ -100,7 +126,7 @@
 }
 
 .nav-dropdown span {
-  color: #00112e;
+  color: #f8e2ac;
 }
 
 .nav-dropdown-arrow {
@@ -134,12 +160,24 @@
   transform: rotate(180deg);
 }
 
+.nav-darkmode .nav-dropdown-arrow {
+  color: #f8ebcb;
+}
+
 .nav-homebtn {
   color: #6685ba;
 }
 
+.nav-darkmode .nav-homebtn {
+  color: inherit;
+}
+
 .nav-links a span:hover {
   color: #00358d;
+}
+
+.nav-darkmode .nav-links a span:hover {
+  color: #f8e2ac;
 }
 
 .nav-home-underline {
@@ -148,7 +186,7 @@
 
 .nav-links a span:hover + svg {
   opacity: 1;
-  color: #00358d;
+  color: inherit;
 }
 
 .nav-links {
@@ -164,7 +202,6 @@
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  box-shadow: -8px 4px 40px 0 rgba(0, 35, 93, 0.08);
   border-radius: 0.5rem;
   overflow: hidden;
   padding: 0;
@@ -172,6 +209,11 @@
   gap: 0;
   z-index: 9;
   width: max-content;
+}
+
+.nav-darkmode .nav-dropdown-contentbtn {
+  background-color: #000;
+  color: #f8e2ac;
 }
 
 .nav-dropdown-container:hover .nav-dropdown-content {
@@ -188,8 +230,17 @@
   padding: 0.5rem 1rem;
 }
 
+.nav-dropdown-contentbtn:last-of-type {
+  border: none;
+}
+
 .nav-dropdown-contentbtn:hover {
   background-color: #ebeef0;
+}
+
+.nav-darkmode .nav-dropdown-contentbtn:hover {
+  background-color: #000;
+  color: #ceaa53;
 }
 
 .nav-hamburger {
@@ -202,6 +253,10 @@
   color: #00112e;
   padding-top: 7px;
   display: none;
+}
+
+.nav-darkmode .nav-hamburger i {
+  color: #f8e2ac;
 }
 
 .nav-hamburger i {
@@ -252,6 +307,10 @@
     padding-block: 3rem;
     transition: all 0.3s ease;
   }
+  .nav-darkmode .hamburger-menu {
+    background: #1f1c16;
+  }
+
   .hamburger-primary {
     width: 100%;
     display: flex;
@@ -288,6 +347,10 @@
     padding: 1rem 0;
     font: 700 1rem/2rem "Schibsted Grotesk";
   }
+  .nav-darkmode .hamburger-primarywrapper a {
+    color: #f8ebcb;
+  }
+
   .hamburger-secondary a {
     margin: 0.25rem 0;
     color: #ccd6e8;
@@ -295,6 +358,9 @@
     text-transform: uppercase;
     border-right: 2px solid #ccd6e8;
     font: 600 0.75rem/1.5rem "Schibsted Grotesk";
+  }
+  .nav-darkmode .hamburger-secondary a {
+    color: #f8ebcb;
   }
 }
 

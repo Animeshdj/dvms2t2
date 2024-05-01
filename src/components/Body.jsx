@@ -11,9 +11,12 @@ import SectionH from "./SectionH";
 import SectionI from "./SectionI";
 import SectionJ from "./SectionJ";
 import SectionK from "./SectionK";
+import { useTheme } from "./ThemeContext";
+
 const Body = () => {
+  const { theme } = useTheme();
   return (
-    <main className="main">
+    <main className={`main ${theme ? "body-darkmode" : ""}`}>
       <SectionA />
       <SectionB />
       <SectionC />
