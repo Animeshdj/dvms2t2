@@ -8,6 +8,10 @@
   gap: 6rem;
 }
 
+.footer-dark {
+  background-color: #ceaa53;
+}
+
 .footer-primary {
   flex-direction: row;
   gap: 6rem;
@@ -43,6 +47,12 @@
   font: 500 0.75rem/ 1.5rem "Schibsted Grotesk";
   color: #99aed1;
 }
+.footer-dark .footer-nav-item {
+  color: #000;
+}
+.footer-dark .footer-nav-item:hover {
+  color: #655631;
+}
 .footer-nav-item:hover {
   color: #ccd6e8;
 }
@@ -72,8 +82,14 @@
   height: 1.5rem;
   width: 1.5rem;
 }
+.footer-dark .footer-socials i {
+  color: #655631;
+}
 .footer-socials i:hover {
   color: #99aed1;
+}
+.footer-dark .footer-socials i:hover {
+  color: #1f1c16;
 }
 
 .footer-privacy {
@@ -86,8 +102,14 @@
   text-decoration: underline;
   color: #99aed1;
 }
+.footer-dark .footer-privacy a {
+  color: #655631;
+}
 .footer-privacy a:hover {
   color: #ccd6e8;
+}
+.footer-dark .footer-privacy a:hover {
+  color: #1f1c16;
 }
 
 .footer-madeby {
@@ -103,6 +125,9 @@
   color: #99aed1;
   transition: all 0.1s ease-in-out;
 }
+.footer-dark .footer-madeby {
+  color: #655631;
+}
 
 .footer-madeby span {
   text-decoration: none;
@@ -116,6 +141,9 @@
   color: #6685ba;
   display: block;
 }
+.footer-dark .footer-madeby svg {
+  color: #655631;
+}
 
 .footer-madeby:hover {
   color: #ccd6e8;
@@ -123,6 +151,13 @@
 
 .footer-madeby:hover svg {
   color: #ccd6e8;
+}
+.footer-dark .footer-madeby:hover {
+  color: #1f1c16;
+}
+
+.footer-dark .footer-madeby:hover svg {
+  color: #1f1c16;
 }
 
 @media (max-width: 1326px) {

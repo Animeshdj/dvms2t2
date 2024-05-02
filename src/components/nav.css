@@ -126,6 +126,9 @@
 }
 
 .nav-dropdown span {
+  color: #1f1c16;
+}
+.nav-darkmode .nav-dropdown span {
   color: #f8e2ac;
 }
 

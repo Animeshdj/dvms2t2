@@ -1,8 +1,11 @@
 import React from "react";
 import "./footer.css";
+import { useTheme } from "./ThemeContext";
+
 const Footer = () => {
+  const { theme } = useTheme();
   return (
-    <div className="footer">
+    <div className={`footer ${theme ? "footer-dark" : ""}`}>
       <div className="footer-primary">
         <a href="/" className="footer-logowrapper">
           <svg
@@ -11,7 +14,7 @@ const Footer = () => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <g style={{ color: "#fff" }}>
+            <g style={{ color: theme ? "#000" : "#fff" }}>
               <path
                 d="M127.9 35.859H117.855V10.7461H117.751L111.344 35.8659H104.475L97.8608 10.7461H97.7575V35.8659H89.6552V0.694031H103.752L108.774 19.3513H108.877L113.693 0.694031H127.893V35.859H127.9Z"
                 fill="currentColor"
@@ -81,7 +84,7 @@ const Footer = () => {
                 fill="currentColor"
               ></path>
             </g>
-            <g style={{ color: "#fff" }}>
+            <g style={{ color: theme ? "#000" : "#fff" }}>
               <path
                 d="M19.8532 28.3271C29.2081 28.6302 36.4412 35.202 44.5079 39.0597C54.9443 44.3227 66.6757 49.5236 78.6138 46.9955V33.6245C63.6998 35.8014 49.578 28.892 36.9165 21.8586C31.502 18.8138 26.1495 14.8666 19.681 14.6875C12.0414 14.0468 5.04942 18.3385 0 23.7186V35.8082C5.55229 31.2204 12.4961 27.776 19.8532 28.3133V28.3271Z"
                 fill="currentColor"
